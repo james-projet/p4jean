@@ -7,7 +7,7 @@
   <input type="hidden" name="episode_id" value="<?= $id;?>">
 	</p>
 </form>
-<?php foreach ($episode->getCommentaires() as $commentaire):?>
+<?php foreach ($commentaires as $commentaire):?>
   <p class="pseudocom"><?= $commentaire->getPseudo()?></p>
   <p class="datecom"><?= $commentaire->getDate_creation();?></p>
   <p class="messagecom"><?= $commentaire->getCommentaire();?></p>
