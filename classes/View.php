@@ -9,7 +9,10 @@ class View
   {
     $this->template = $template;
   }
-
+    /**
+  *Sert a construire la vue
+  *$datas = objet ou var
+  **/
   public function render($datas = null)
   {
 
