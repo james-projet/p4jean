@@ -14,7 +14,11 @@ class Routeur
     $this->routes = parse_ini_file("fichier.ini", true);
 
   }
-
+  /**
+  *Sert a extraire tous les element de l url et les stocker dans un tableau
+  *$element = int,string
+  *return params = array(int et ou string)
+  **/
   public function extractParams($element) {
     unset($element[0]);
     $params_get = array();
@@ -29,7 +33,9 @@ class Routeur
     return $params;
   }
 
-
+  /**
+  *Sert a indiquer la bonne routes par rapport a l action de l utilisateur
+  **/
   public function renderController()
   {
     $action = $this->action;
