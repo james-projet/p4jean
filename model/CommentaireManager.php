@@ -1,5 +1,5 @@
 <?php
-class EpisodeManager
+class CommentaireManager
 {
   private $bdd;
 
@@ -17,7 +17,11 @@ class EpisodeManager
   {
     $commentaires = array();
     $bdd = $this->bdd;
-    $reponse = $bdd->prepare('SELECT pseudo, commentaire, date_creation, episode_id FROM commentaire WHERE episode_id=:id');
+    $reponse = $bdd->prepare('SELECT c.pseudo, c.commentaire, c.date_creation, c.episode_id
+                              FROM commentaire c
+                              INNER JOIN episode e
+                              ON c.episode_id = e.id
+                              WHERE c.episode_id=:id');
     $reponse->bindValue('id', $id);
     $reponse->execute();
     while ($donnees = $reponse->fetch())
@@ -47,4 +51,3 @@ class EpisodeManager
   }
 }
 
-}
